@@ -44,7 +44,7 @@ class Field:
 class CharField(Field):
 
     def __set__(self, instance, value):
-        if type(value) != str:
+        if type(value) != str and value != None:
             msg = f"{value} expected type is str but {type(value)} given."
             raise FieldTypeError(msg)
         super().__set__(instance, value)
