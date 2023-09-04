@@ -3,10 +3,10 @@ from fields import CharField, IntField
 
 
 class Student(Model):
-    first_name = CharField(name= "fname", max_length=10)
+    first_name = CharField(name="fname", max_length=10)
     last_name = CharField()
     age = IntField()
-    length = IntField(default=30)
+    length = IntField(nullable=False)
 
     def __str__(self):
         return f"Firstname: {self.first_name}, Lastname: {self.last_name}, Age: {self.age}, Length: {self.length}"
@@ -27,7 +27,7 @@ print(john)
 print(james)
 
 # Model -> List, List -> Model
-# import pickle 
+# import pickle
 
 # serialized_data = pickle.dumps(john)
 # deserialized_data = pickle.loads(serialized_data)
@@ -43,7 +43,7 @@ print(james)
 #     for prop in obj_fields.keys():
 #         if prop in obj.__dict__:
 #             serialize_data.append(obj.__dict__[prop])
-    
+
 #     print(serialize_data)
 
 # serialize(john)

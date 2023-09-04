@@ -20,8 +20,8 @@ class Model(metaclass=ModelBase):
         # get dict value of subclasses
         subclass_dict = self.__class__.__dict__.copy()
         instance_dict = self.__dict__
-        
-        # check the base classes of all the props in subclass_dict and add to the instance dict 
+
+        # check the base classes of all the props in subclass_dict and add to the instance dict
         # all props with base Field
         for prop, value in subclass_dict.items():
             base_classes = value.__class__.__bases__
@@ -32,14 +32,16 @@ class Model(metaclass=ModelBase):
                 if field_name:
                     instance_dict[field_name] = instance_dict.pop(prop)
                     setattr(self.__class__, field_name, value)
-        
+
         # Set key, value from model fields provided. Raise error if column does not exist
         for key, value in kwargs.items():
             if key in instance_dict:
                 instance_dict[key].__set__(self, value)
             else:
-                raise ColumnDoesNotExist(f"{key} not a field in {self.__class__.__name__}")
-        
+                raise ColumnDoesNotExist(
+                    f"{key} not a field in {self.__class__.__name__}"
+                )
+
         # Set Default fields values
         if len(kwargs) < len(instance_dict):
             for field, value in instance_dict.items():

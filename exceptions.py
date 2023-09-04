@@ -1,11 +1,14 @@
 class ColumnDoesNotExist(Exception):
-    def __init__(self, message):
-        super().__init__(self, message)
+    pass
+
 
 class FieldTypeError(Exception):
-    def __init__(self, message):
-        super().__init__(self, message)
+    pass
+
 
 class MaxLengthExceeded(Exception):
-    def __init__(self, message):
-        super().__init__(self, message)
+    pass
+
+
+class FieldCantBeNull(Exception):
+    pass
