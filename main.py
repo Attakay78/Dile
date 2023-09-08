@@ -6,7 +6,7 @@ class Student(Model):
     first_name = CharField(name="fname", max_length=10)
     last_name = CharField()
     age = IntField()
-    length = IntField(nullable=False)
+    length = IntField(nullable=False, default=51)
 
     def __str__(self):
         return f"Firstname: {self.first_name}, Lastname: {self.last_name}, Age: {self.age}, Length: {self.length}"
@@ -19,7 +19,7 @@ class Student(Model):
 #     def __str__(self):
 #         return f"Name: {self.name}, Age: {self.age}"
 
-john = Student(fname="John", last_name="Ron", age=34)
+john = Student(fname="John", last_name="Ron", age=34, length=43)
 
 james = Student(fname="James", last_name="Achon", age=25)
 

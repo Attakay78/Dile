@@ -9,16 +9,14 @@ class Field:
         name: str = None,
         max_length: int = None,
         nullable: bool = True,
-        unique: bool = False,  # Yet to
         default: Any = None,
-        editable: bool = True,  # Yet to
-        serialize: bool = True,  # Yet to
-        choices: Any = None,  # Yet to
+        editable: bool = True,  # TODO
+        serialize: bool = True,  # TODO
+        choices: Any = None,  # TODO
     ):
         self.field_name = name
         self.max_length = max_length
         self.is_nullable = nullable
-        self._unique = unique
         self.default = default
         self.is_editable = editable
         self.is_serializable = serialize
